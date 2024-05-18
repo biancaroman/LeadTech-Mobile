@@ -52,16 +52,16 @@ const Navbar = ({ logoSource, onMenuPress }) => {
                   <Text style={styles.menuItem}>Inicio</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                  navigation.navigate('Profile');
+                  navigation.navigate('Sobre Nós');
                   setMenuVisible(false);
                 }}>
-                  <Text style={styles.menuItem}>Profile</Text>
+                  <Text style={styles.menuItem}>Sobre Nós</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                  navigation.navigate('Settings');
+                  navigation.navigate('Contato');
                   setMenuVisible(false);
                 }}>
-                  <Text style={styles.menuItem}>Settings</Text>
+                  <Text style={styles.menuItem}>Contato</Text>
                 </TouchableOpacity>
               </View>
             </View>

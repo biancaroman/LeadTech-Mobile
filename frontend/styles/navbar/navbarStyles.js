@@ -8,8 +8,6 @@ export const styles = StyleSheet.create({
       marginTop: 40, 
       padding: 10,
       backgroundColor: '#fff',
-      borderBottomWidth: 1,
-      borderBottomColor: '#ddd',
     },
     menuButton: {
       paddingHorizontal: 10,

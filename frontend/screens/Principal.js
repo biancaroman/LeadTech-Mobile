@@ -4,7 +4,6 @@ import Navbar from '../components/NavbarPrincipal';
 import Menu from '../components/Menu';
 import { styles } from '../styles/telas/principalStyles';
 
-
 export default function Principal() {
   return (
       <View style={styles.container}>

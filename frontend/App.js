@@ -5,13 +5,19 @@ import Login from './screens/Login';
 import Cadastro from './screens/Cadastro';
 import Principal from './screens/Principal';
 import Inicio from './screens/Inicio'
+import Entrada from './screens/Entrada';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Inicio">
+      <Stack.Navigator initialRouteName="Entrada">
+        <Stack.Screen
+          name="Entrada"
+          component={Entrada}
+          options={{ title: 'Entrada', headerShown: false }} 
+        />
         <Stack.Screen
           name="Inicio"
           component={Inicio}

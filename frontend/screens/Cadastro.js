@@ -2,57 +2,77 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ImageBackground, ToastAndroid } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../styles/telas/cadastroStyles';
-import {Entypo} from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export default function Cadastro() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [phone, setPhone] = useState('');
+    const [senha, setSenha] = useState('');
+    const [telefone, setTelefone] = useState('');
     const navigation = useNavigation();
 
-    const handleCadastro = () => {
-        if (!validateEmail(email)) {
+    const realizarCadastro = async () => {
+        if (!validarEmail(email)) {
             ToastAndroid.show('Por favor, insira um email válido.', ToastAndroid.SHORT);
             return;
         }
-        if (!validatePassword(password)) {
+        if (!validarSenha(senha)) {
             ToastAndroid.show('A senha deve ter pelo menos 8 caracteres e conter pelo menos 1 número.', ToastAndroid.SHORT);
             return;
         }
-        if (!validatePhone(phone)) {
+        if (!validarTelefone(telefone)) {
             ToastAndroid.show('Por favor, insira um telefone no formato (DDD)XXXXX-XXXX.', ToastAndroid.SHORT);
             return;
         }
-        navigation.navigate('Principal');
+
+        try {
+            const resposta = await fetch('https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.replit.dev/registrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, senha, telefone }),
+            });
+
+            const dados = await resposta.json();
+
+            if (resposta.ok) {
+                ToastAndroid.show('Usuário cadastrado com sucesso!', ToastAndroid.SHORT);
+                navigation.navigate('Login');
+            } else {
+                ToastAndroid.show(dados.message, ToastAndroid.SHORT);
+            }
+        } catch (error) {
+            ToastAndroid.show('Erro ao realizar cadastro', ToastAndroid.SHORT);
+        }
     };
 
-    const validateEmail = (email) => {
+    const validarEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
 
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[0-9]).{8,}$/;
-        return passwordRegex.test(password);
+    const validarSenha = (senha) => {
+        const senhaRegex = /^(?=.*[0-9]).{8,}$/;
+        return senhaRegex.test(senha);
     };
 
-    const validatePhone = (phone) => {
-        const phoneRegex = /^\(\d{2}\)\d{5}-\d{4}$/;
-        return phoneRegex.test(phone);
+    const validarTelefone = (telefone) => {
+        const telefoneRegex = /^\(\d{2}\)\d{5}-\d{4}$/;
+        return telefoneRegex.test(telefone);
     };
 
-    const formatPhone = (text) => {
-        const cleaned = text.replace(/\D/g, '');
-        let formatted = cleaned;
+    const formatarTelefone = (texto) => {
+        const limpo = texto.replace(/\D/g, '');
+        let formatado = limpo;
 
-        if (cleaned.length > 2) {
-            formatted = `(${cleaned.slice(0, 2)})${cleaned.slice(2)}`;
+        if (limpo.length > 2) {
+            formatado = `(${limpo.slice(0, 2)})${limpo.slice(2)}`;
         }
-        if (cleaned.length > 7) {
-            formatted = `(${cleaned.slice(0, 2)})${cleaned.slice(2, 7)}-${cleaned.slice(7, 11)}`;
+        if (limpo.length > 7) {
+            formatado = `(${limpo.slice(0, 2)})${limpo.slice(2, 7)}-${limpo.slice(7, 11)}`;
         }
-        setPhone(formatted);
+        setTelefone(formatado);
     };
 
 
@@ -80,8 +100,8 @@ export default function Cadastro() {
                         <TextInput
                             style={styles.input}
                             placeholder="(DDD)XXXXX-XXXX"
-                            value={phone}
-                            onChangeText={formatPhone}
+                            value={telefone}
+                            onChangeText={formatarTelefone}
                             keyboardType="phone-pad"
                             maxLength={14} 
                         />
@@ -92,20 +112,20 @@ export default function Cadastro() {
                         <TextInput
                             style={styles.input}
                             placeholder="Digite sua senha"
-                            value={password}
-                            onChangeText={setPassword}
+                            value={senha}
+                            onChangeText={setSenha}
                             secureTextEntry={true}
                         />
                     </View>
                     <View style={styles.recomendacoes}>
                         <Entypo name="controller-record" size={14} color="white" />
-                        <Text style={styles.marcadores}>Use 8 ou mais carácteres </Text>
+                        <Text style={styles.marcadores}>Use 8 ou mais caracteres </Text>
                     </View>
                     <View style={styles.recomendacoes}>
                         <Entypo name="controller-record" size={14} color="white" />
                         <Text style={styles.marcadores}>Use um número (ex. 1234)</Text>
                     </View>
-                    <TouchableOpacity style={styles.loginButton} onPress={handleCadastro}>
+                    <TouchableOpacity style={styles.loginButton} onPress={realizarCadastro}>
                         <Text style={styles.loginButtonText}>Cadastrar</Text>
                     </TouchableOpacity>
                    
@@ -114,5 +134,3 @@ export default function Cadastro() {
         </ImageBackground>
     );
 }
-
-

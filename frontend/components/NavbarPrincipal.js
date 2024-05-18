@@ -67,9 +67,9 @@ const Navbar = ({ logoSource }) => {
                   <FontAwesomeIcon icon={faChartLine} size={18} color={activeScreen === 'Dashboard' ? '#4c9ece' : '#595683'} /> {'  '} Dashboard
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Relatórios')}>
-                <Text style={[styles.menuItem, activeScreen === 'Relatórios' ? styles.activeItem : null, activeScreen === 'Relatórios' ? { color: '#4c9ece' } : null]}>
-                  <FontAwesomeIcon icon={faClipboardList} size={18} color={activeScreen === 'Relatórios' ? '#4c9ece' : '#595683'} /> {'  '} Relatórios
+              <TouchableOpacity onPress={() => handleNavigation('Relatorios')}>
+                <Text style={[styles.menuItem, activeScreen === 'Relatorios' ? styles.activeItem : null, activeScreen === 'Relatorios' ? { color: '#4c9ece' } : null]}>
+                  <FontAwesomeIcon icon={faClipboardList} size={18} color={activeScreen === 'Relatorios' ? '#4c9ece' : '#595683'} /> {'  '} Relatórios
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => handleNavigation('Campanhas')}>
@@ -77,19 +77,19 @@ const Navbar = ({ logoSource }) => {
                   <FontAwesomeIcon icon={faBullhorn} size={18} color={activeScreen === 'Campanhas' ? '#4c9ece' : '#595683'} /> {'  '} Campanhas
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Integrações')}>
-                <Text style={[styles.menuItem, activeScreen === 'Integrações' ? styles.activeItem : null, activeScreen === 'Integrações' ? { color: '#4c9ece' } : null]}>
-                  <FontAwesomeIcon icon={faPlug} size={18} color={activeScreen === 'Integrações' ? '#4c9ece' : '#595683'} /> {'  '} Integrações
+              <TouchableOpacity onPress={() => handleNavigation('Integracoes')}>
+                <Text style={[styles.menuItem, activeScreen === 'Integracoes' ? styles.activeItem : null, activeScreen === 'Integracoes' ? { color: '#4c9ece' } : null]}>
+                  <FontAwesomeIcon icon={faPlug} size={18} color={activeScreen === 'Integracoes' ? '#4c9ece' : '#595683'} /> {'  '} Integrações
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Automatizações')}>
-                <Text style={[styles.menuItem, activeScreen === 'Automatizações' ? styles.activeItem : null, activeScreen === 'Automatizações' ? { color: '#4c9ece' } : null]}>
-                  <FontAwesomeIcon icon={faCog} size={18} color={activeScreen === 'Automatizações' ? '#4c9ece' : '#595683'} /> {'  '} Automatizações
+              <TouchableOpacity onPress={() => handleNavigation('Automatizacoes')}>
+                <Text style={[styles.menuItem, activeScreen === 'Automatizacoes' ? styles.activeItem : null, activeScreen === 'Automatizacoes' ? { color: '#4c9ece' } : null]}>
+                  <FontAwesomeIcon icon={faCog} size={18} color={activeScreen === 'Automatizacoes' ? '#4c9ece' : '#595683'} /> {'  '} Automatizações
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Recomendações')}>
-                <Text style={[styles.menuItem, activeScreen === 'Recomendações' ? styles.activeItem : null, activeScreen === 'Recomendações' ? { color: '#4c9ece' } : null]}>
-                  <FontAwesomeIcon icon={faLightbulb} size={18} color={activeScreen === 'Recomendações' ? '#4c9ece' : '#595683'} /> {'  '} Recomendações
+              <TouchableOpacity onPress={() => handleNavigation('Recomendacoes')}>
+                <Text style={[styles.menuItem, activeScreen === 'Recomendacoes' ? styles.activeItem : null, activeScreen === 'Recomendacoes' ? { color: '#4c9ece' } : null]}>
+                  <FontAwesomeIcon icon={faLightbulb} size={18} color={activeScreen === 'Recomendacoes' ? '#4c9ece' : '#595683'} /> {'  '} Recomendações
                 </Text>
               </TouchableOpacity>
             </View>

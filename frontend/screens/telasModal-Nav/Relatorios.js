@@ -6,7 +6,7 @@ import axios from 'axios';
 import { styles } from '../../styles/telasNav/relatoriosStyles';
 import Navbar from '../../components/NavbarPrincipal';
 import Menu from '../../components/Menu';
-import { MaterialIcons } from '@expo/vector-icons';  // Import the icons
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 export default function Relatorios() {
     const [metricaSelecionada, setMetricaSelecionada] = useState('ROI');

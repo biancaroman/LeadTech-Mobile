@@ -11,7 +11,7 @@ const screenWidth = Dimensions.get('window').width;
 const Navbar = ({ logoSource }) => {
   const navigation = useNavigation();
   const [menuVisible, setMenuVisible] = useState(false);
-  const slideAnim = useRef(new Animated.Value(-screenWidth)).current; // Initial position off-screen
+  const slideAnim = useRef(new Animated.Value(-screenWidth)).current;
   const [activeScreen, setActiveScreen] = useState('');
 
   const handleMenuPress = () => {

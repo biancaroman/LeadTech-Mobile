@@ -22,8 +22,6 @@ export default function Login() {
             const dados = await resposta.json();
 
             if (resposta.ok) {
-                // Salvar o token em algum lugar seguro
-                // Navegar para a tela principal
                 navigation.navigate('Principal');
             } else {
                 if (dados.mensagem === 'Usuário não encontrado') {

@@ -10,25 +10,25 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
-    color: 'white'
+    color: 'white',
   },
   subtitle: {
     fontSize: 18,
     fontWeight: '600',
     marginVertical: 10,
-    color: 'white'
+    color: 'white',
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     marginVertical: 10,
-    color: 'white'
+    color: 'white',
   },
   picker: {
     height: 50,
     width: '100%',
     marginVertical: 10,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   input: {
     marginVertical: 10,
@@ -36,19 +36,60 @@ export const styles = StyleSheet.create({
   button: {
     marginVertical: 20,
   },
-  modalButtonText:{
+  modalTitle: {
+    fontSize: 28,
+    textAlign: 'center',
+    marginVertical: 20,
+    color: '#000',
+  },
+  modalContainer: {
+    flex: 1,
+    padding: 30,
+    backgroundColor: '#fff',
+  },
+  modalButtonText: {
     fontSize: 18,
-    color: 'white'
-
+    color: 'white',
   },
   report: {
     padding: 20,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'lightgray',
     borderRadius: 8,
     marginTop: 20,
+    position: 'relative',
   },
   reportText: {
-    fontSize: 14,
+    fontSize: 18,
     marginVertical: 2,
   },
+  deleteIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
+  modalCloseButton: {
+    padding: 8,
+    width: '80%',
+    alignSelf: 'center',
+    marginTop: 30,
+  },
+  emptyMessage: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+  errorText: {
+    fontSize: 16,
+    color: 'red',
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  modalButton: {
+    backgroundColor: '#6200ee',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginVertical: 20,
+  },
 });
+

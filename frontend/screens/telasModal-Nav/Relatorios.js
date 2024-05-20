@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, Modal, TouchableOpacity, ScrollView } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
 import { styles } from '../../styles/telasNav/relatoriosStyles';
 import Navbar from '../../components/NavbarPrincipal';
 import Menu from '../../components/Menu';
+import { MaterialIcons } from '@expo/vector-icons';  // Import the icons
 
 export default function Relatorios() {
     const [metricaSelecionada, setMetricaSelecionada] = useState('ROI');
@@ -55,6 +56,21 @@ export default function Relatorios() {
         } catch (error) {
             console.error('Erro ao gerar relatório:', error);
             setError('Erro ao gerar relatório.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const deletarRelatorio = async (id) => {
+        try {
+            setLoading(true);
+            await axios.delete(`https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.repl.co/relatorios/${id}`);
+            setRelatoriosGerados(relatoriosGerados.filter(relatorio => relatorio.id !== id));
+            setError(null);
+            alert('Relatório deletado com sucesso!');
+        } catch (error) {
+            console.error('Erro ao deletar relatório:', error);
+            setError('Erro ao deletar relatório.');
         } finally {
             setLoading(false);
         }
@@ -116,25 +132,30 @@ export default function Relatorios() {
                 </TouchableOpacity>
 
                 <Modal visible={modalVisivel} animationType="slide">
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Relatórios Gerados</Text>
-                        {relatoriosGerados.length === 0 ? (
-                            <Text style={styles.emptyMessage}>Nenhum relatório gerado.</Text>
-                        ) : (
-                            relatoriosGerados.map((relatorio, index) => (
-                                <View key={index} style={styles.report}>
-                                    <Text style={styles.reportText}>Nome: {relatorio.nome}</Text>
-                                    <Text style={styles.reportText}>Métrica: {relatorio.metrica}</Text>
-                                    <Text style={styles.reportText}>Filtro: {relatorio.filtro}</Text>
-                                    <Text style={styles.reportText}>Desempenho: {relatorio.desempenho}</Text>
-                                    <Text style={styles.reportText}>ROI: {relatorio.roi}</Text>
-                                </View>
-                            ))
-                        )}
-                        <Button onPress={alternarModal} mode="contained" style={styles.modalCloseButton}>
-                            Fechar
-                        </Button>
-                    </View>
+                    <ScrollView>
+                        <View style={styles.modalContainer}>
+                            <Text style={styles.modalTitle}>Relatórios Gerados</Text>
+                            {relatoriosGerados.length === 0 ? (
+                                <Text style={styles.emptyMessage}>Nenhum relatório gerado.</Text>
+                            ) : (
+                                relatoriosGerados.map((relatorio, index) => (
+                                    <View key={index} style={styles.report}>
+                                        <TouchableOpacity onPress={() => deletarRelatorio(relatorio.id)} style={styles.deleteIcon}>
+                                            <MaterialIcons name="delete" size={24} color="black" />
+                                        </TouchableOpacity>
+                                        <Text style={styles.reportText}>Nome: {relatorio.nome}</Text>
+                                        <Text style={styles.reportText}>Métrica: {relatorio.metrica}</Text>
+                                        <Text style={styles.reportText}>Filtro: {relatorio.filtro}</Text>
+                                        <Text style={styles.reportText}>Desempenho: {relatorio.desempenho}</Text>
+                                        <Text style={styles.reportText}>ROI: {relatorio.roi}</Text>
+                                    </View>
+                                ))
+                            )}
+                            <Button onPress={alternarModal} mode="contained" style={styles.modalCloseButton}>
+                                Fechar
+                            </Button>
+                        </View>
+                    </ScrollView>
                 </Modal>
             </View>
             <Menu />

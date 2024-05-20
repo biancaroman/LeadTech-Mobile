@@ -10,7 +10,7 @@ const Entrada = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('Inicio'); 
-    }, 3000);
+    },0);
 
     return () => clearTimeout(timer); 
   }, [navigation]);

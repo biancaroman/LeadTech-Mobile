@@ -11,7 +11,7 @@ export default function Login() {
 
     const realizarLogin = async () => {
         try {
-            const resposta = await fetch('https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.replit.dev/login', {
+            const resposta = await fetch('https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.repl.co/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

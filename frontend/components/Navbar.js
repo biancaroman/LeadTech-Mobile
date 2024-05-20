@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image, Pressable, Modal, TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; // Importe o ícone 'X'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'; 
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../styles/navbar/navbarStyles';
 
@@ -44,7 +44,6 @@ const Navbar = ({ logoSource, onMenuPress }) => {
                 <TouchableOpacity onPress={closeModal}>
                   <FontAwesomeIcon icon={faTimes} size={24} color="black" />
                 </TouchableOpacity>
-                {/* Restante do conteúdo do modal */}
                 <TouchableOpacity onPress={() => {
                   navigation.navigate('Inicio');
                   setMenuVisible(false);

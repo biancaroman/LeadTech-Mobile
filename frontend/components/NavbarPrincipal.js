@@ -72,35 +72,35 @@ const Navbar = ({ logoSource }) => {
                   <FontAwesomeIcon icon={faClipboardList} size={18} color={activeScreen === 'Relatorios' ? '#4c9ece' : '#595683'} /> {'  '} Relatórios
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Campanhas')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={[styles.menuItem, activeScreen === 'Campanhas' ? styles.activeItem : null, activeScreen === 'Campanhas' ? { color: '#4c9ece' } : null]}>
                   <FontAwesomeIcon icon={faBullhorn} size={18} color={activeScreen === 'Campanhas' ? '#4c9ece' : '#595683'} /> {'  '} Campanhas
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Integracoes')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={[styles.menuItem, activeScreen === 'Integracoes' ? styles.activeItem : null, activeScreen === 'Integracoes' ? { color: '#4c9ece' } : null]}>
                   <FontAwesomeIcon icon={faPlug} size={18} color={activeScreen === 'Integracoes' ? '#4c9ece' : '#595683'} /> {'  '} Integrações
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Automatizacoes')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={[styles.menuItem, activeScreen === 'Automatizacoes' ? styles.activeItem : null, activeScreen === 'Automatizacoes' ? { color: '#4c9ece' } : null]}>
                   <FontAwesomeIcon icon={faCog} size={18} color={activeScreen === 'Automatizacoes' ? '#4c9ece' : '#595683'} /> {'  '} Automatizações
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Recomendacoes')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={[styles.menuItem, activeScreen === 'Recomendacoes' ? styles.activeItem : null, activeScreen === 'Recomendacoes' ? { color: '#4c9ece' } : null]}>
                   <FontAwesomeIcon icon={faLightbulb} size={18} color={activeScreen === 'Recomendacoes' ? '#4c9ece' : '#595683'} /> {'  '} Recomendações
                 </Text>
               </TouchableOpacity>
             </View>
             <View style={styles.outrosLinks}>
-              <TouchableOpacity onPress={() => handleNavigation('Configurações')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={styles.linksDois}> Configurações</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Sobre')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={styles.linksDois}> Sobre</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => handleNavigation('Ajuda')}>
+              <TouchableOpacity onPress={() => handleNavigation('PaginaEmBreve')}>
                 <Text style={styles.linksDois}> Ajuda</Text>
               </TouchableOpacity>
             </View>

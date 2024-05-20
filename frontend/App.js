@@ -13,6 +13,7 @@ import Integracoes from './screens/telasModal-Nav/Integracoes';
 import Automatizacoes from './screens/telasModal-Nav/Automatizacoes';
 import Recomendacoes from './screens/telasModal-Nav/Recomendacoes';
 import Senha from './screens/Senha';
+import PaginaEmBreve from './screens/PaginaEmBreve';
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,11 @@ export default function App() {
           name="Senha"
           component={Senha}
           options={{ title: 'Senha', headerShown: false }} 
+        />
+        <Stack.Screen
+          name="PaginaEmBreve"
+          component={PaginaEmBreve}
+          options={{ title: 'PaginaEmBreve', headerShown: false }} 
         />
       </Stack.Navigator>
     </NavigationContainer>

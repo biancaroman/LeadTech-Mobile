@@ -26,7 +26,7 @@ export default function Cadastro() {
         }
 
         try {
-            const resposta = await fetch('https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.replit.dev/registrar', {
+            const resposta = await fetch('https://048ed71d-0b9a-4df7-a77e-690e34981c6b-00-rcgu688ubyui.janeway.repl.co/registrar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function Cadastro() {
         <ImageBackground source={require('../assets/background/Fundo-Cadastro.png')} style={styles.backgroundImage}>
             <View style={styles.containerTitle}>
                 <Text style={styles.title}>Realizar Cadastro</Text>
-                <Text style={styles.texto}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis maximus</Text>
+                <Text style={styles.texto}>Faça o seu cadastro e conheça a Conversão Inteligente</Text>
             </View>
             <View style={styles.container}>
                 <View style={styles.formContainer}>
